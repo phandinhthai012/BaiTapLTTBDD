@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    //     Data 1: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
+    // §  Data Bonus 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
+    // §  Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
+    const calAverage = (arr) => {
+        if (arr.length == 0) {
+            return ""
+        }
+        let sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        let tb = sum / arr.length
+        return tb
+    }
+    const Dolphins = [96, 108, 89]
+    const Koalas = [88, 91, 110]
+    let averageDol = calAverage(Dolphins)
+    let averageKoalas = calAverage(Koalas)
+
+    if (averageDol > Koalas) {
+        console.log('winer: Dolphins, average: ', averageDol)
+    } else if (averageDol < Koalas) {
+        console.log('winer: Koalas, average: ', averageKoalas)
+    } else {
+        console.log('the same average')
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>
