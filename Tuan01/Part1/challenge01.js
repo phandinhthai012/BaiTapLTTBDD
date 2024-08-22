@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<script>
-    //data1
+ //data1
     let marksMass = 1.69;
     let marksHeight = 78;
     let johnMass = 1.95;
@@ -32,11 +23,3 @@
     const johnBMI2 = calculateBMI(johnMass2, johnHeight2);
     const markHigherBMI2 = marksBMI2 > johnBMI2;
     console.log("marksBMI > johnBMI: " + markHigherBMI2);
-</script>
-
-
-<body>
-
-</body>
-
-</html>
