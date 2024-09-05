@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet,Text, View,Image,Button} from 'react-native';
+import {StyleSheet,Text, View,Image,TouchableOpacity} from 'react-native';
 
 const FirstApp = () => {
   return (
@@ -13,9 +13,13 @@ const FirstApp = () => {
        <View style ={styles.como}>
           <Text style = {[styles.text,styles.fonSize2]}>We will help you to grow your business using online server</Text>
        </View>
-        <View style ={[styles.btns,styles.como]}>
-         <Button title = 'LOGIN' style = {styles.btn} color='#e3c100'/>
-         <Button title = 'SiGN UP'style = {styles.btn}color='#e3c100'/>
+        <View style ={styles.btns}>
+          <TouchableOpacity style={styles.button} onPress={() => alert('Button Pressed!')}>
+            <Text style={styles.buttonText}>LOGIN</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => alert('Button Pressed!')}>
+            <Text style={styles.buttonText}>SIGN UP</Text>
+          </TouchableOpacity>
        </View>
     </View>
   );
@@ -29,7 +33,7 @@ const styles = StyleSheet.create({
   },
   como :{
     alignItems:'center',
-    margin:24
+    marginBottom:48
   },
   circle: {
     height:140,
@@ -39,30 +43,39 @@ const styles = StyleSheet.create({
     
   },
   text: {
-    fontFamily: 'Roboto',
-    fontWeight:700,
-    
+    fontFamily: 'bold',
+    fontWeight:800,
     textAlign:'center'
   },
   fonSize1:{
     fontSize:25,
-    lineHeight:29.3,
+    lineHeight:29,
   },
   fonSize2:{
-    fontSize:15.5,
-    lineHeight:17.58,
+    fontSize:16,
+    lineHeight:18,
   },
   btns:{
     flex :1,
+    marginTop:32,
     flexDirection: 'row',
     justifyContent:'space-around',
     alignItems:'center'
+
   },
-  btn :{
-    fontSize: 15,
-    width:119,
+  button: {
+    backgroundColor: '#e3c100',  // Màu nền của button
+    padding: 13,
     height:48,
-  }
- 
+    width:119,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent:'center'
+  },
+  buttonText: {
+    color: '#000000',  // Màu chữ của button
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
 export default FirstApp;
