@@ -47,6 +47,21 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight:'bold',
         color: 'white'
+    },
+    title:{
+        marginTop:32,
+        alignItems: 'center',
+    },
+    textTitle:{
+        padding:8,
+        fontSize:14,
+        fontStyle: 'normal',
+    },
+    colorT: {
+        color:"#5D25FA"
+    },
+    logo:{
+        marginTop:8
     }
   });
 

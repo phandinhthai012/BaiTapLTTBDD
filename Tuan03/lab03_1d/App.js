@@ -21,6 +21,16 @@ export default function App() {
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
     </View>
+    <View style = {styles.title}>
+      <Text style= {styles.textTitle}>When you agree to terms and conditions</Text>
+      <Text style= {[styles.textTitle,styles.colorT]}>For got your password?</Text>
+      <Text style= {styles.textTitle}>Or login with</Text>
+    </View>
+    <View style= {styles.logo}>
+      <TouchableOpacity>
+        <Image source={require('./assets/Group 18.png')}/>
+      </TouchableOpacity>
+    </View>
 
     </View>
   );
