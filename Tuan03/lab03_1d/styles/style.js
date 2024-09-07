@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
         color:"#5D25FA"
     },
     logo:{
-        marginTop:8
+        marginTop:8,
+        flexDirection:'row',
     }
   });
 

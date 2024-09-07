@@ -28,7 +28,13 @@ export default function App() {
     </View>
     <View style= {styles.logo}>
       <TouchableOpacity>
-        <Image source={require('./assets/Group 18.png')}/>
+        <Image source={require('./assets/Facebook.png')}/>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require('./assets/Zalo.png')}/>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require('./assets/GG.png')}/>
       </TouchableOpacity>
     </View>
 
