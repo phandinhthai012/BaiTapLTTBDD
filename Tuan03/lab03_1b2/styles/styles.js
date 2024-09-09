@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     inputs:{
         flexDirection:'row',
         backgroundColor:'#c3c5c4',
-        width:width*0.9,
+        width:305,
         height:45,
         paddingLeft:10,
         justifyContent:'flex-start',
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     },
     buttons :{
         backgroundColor:'#e3c100',
-        width:width*0.9,
+        width:305,
         height:45,
         justifyContent:'center',
     },
