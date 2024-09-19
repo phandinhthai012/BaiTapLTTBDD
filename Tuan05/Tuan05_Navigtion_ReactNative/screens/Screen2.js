@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View,Button, Image ,TouchableOpacity} from 'react-native'
 import React from 'react'
 import { useState } from 'react'
-import { useRoute } from '@react-navigation/native'
+import { useRoute,CommonActions } from '@react-navigation/native'
 
 
 
@@ -46,8 +46,12 @@ const Screen2 = ({navigation}) => {
     setUrlImg(product.img);
   };
   const handleConfirm = (product) => {
-    navigation.navigate('Home', {product});
-    navigation.goBack();
+    // navigation.navigate('Home', {product});
+    // // navigation.goBack();
+    navigation.dispatch(CommonActions.reset({
+      index: 0,
+      routes: [{name: 'Home', params: {product}}],
+    }));
   }
   return (
     <View style={styles.container}>
@@ -93,7 +97,10 @@ const Screen2 = ({navigation}) => {
           </View>
           <View style={styles.done}>
               <TouchableOpacity style ={styles.btnDone}
-                        onPress={() => handleConfirm(selectedProduct)}
+                        onPress={() => {
+                          // 
+                          handleConfirm(selectedProduct);
+                        }}
               >
                   <Text style={styles.textDone}>XONG</Text>
               </TouchableOpacity>

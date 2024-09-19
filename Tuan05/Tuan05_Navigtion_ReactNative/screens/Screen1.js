@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View , Image,TouchableOpacity,Button} from 'react-native'
 import React from 'react'
 import { useState } from 'react'
-import { useRoute} from '@react-navigation/native'
+import { useRoute, CommonActions} from '@react-navigation/native'
 
 const Screen1 = ({navigation}) => {
   const route = useRoute();
@@ -9,7 +9,7 @@ const Screen1 = ({navigation}) => {
   return (
     <View style ={styles.conatiner}>
       <View styles= {styles.viewImg}>
-        {selectedProduct !=null ?(<Image source = {{url:selectedProduct.img}} style ={styles.imageProduct}/>):(
+        {selectedProduct !=null ?(<Image source = {{uri:selectedProduct.img}} style ={styles.imageProduct}/>):(
              <Image source = {require('../assets/images/vs_blue.png')} style ={styles.imageProduct}/>
         )}
        
@@ -53,7 +53,11 @@ const Screen1 = ({navigation}) => {
         
       </View>
       <View style={styles.btnView}>
-        <TouchableOpacity style={styles.btnbuy}>
+        <TouchableOpacity style={styles.btnbuy} 
+                          onPress={()=>{
+                              console.log(selectedProduct)
+                          }}
+        >
           <Text style={styles.textBtnB}>CHỌN MUA</Text>
         </TouchableOpacity>
         
