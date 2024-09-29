@@ -1,3 +1,4 @@
+
 import { StatusBar } from 'expo-status-bar';
 import {
 	StyleSheet,
@@ -45,6 +46,24 @@ const data = [
 		discount: '-39%',
 	},
 
+	{
+		url: require('./assets/images/daucam1.png'),
+		title: 'Cách chuyển từ cổng USB sang PS2',		
+		price: '69.000đ',
+		discount: '-39%',
+	},
+	{
+		url: require('./assets/images/daucam1.png'),
+		title: 'Cách chuyển từ cổng USB sang PS2',		
+		price: '69.000đ',
+		discount: '-39%',
+	},
+	{
+		url: require('./assets/images/daucam1.png'),
+		title: 'Cách chuyển từ cổng USB sang PS2',		
+		price: '69.000đ',
+		discount: '-39%',
+	},
 	{
 		url: require('./assets/images/daucam1.png'),
 		title: 'Cách chuyển từ cổng USB sang PS2',		
