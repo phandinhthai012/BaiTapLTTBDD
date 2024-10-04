@@ -1,7 +1,10 @@
 import { StyleSheet, Text, View , Image, StatusBar,TextInput, TouchableOpacity} from 'react-native'
-import React from 'react'
+import React from 'react';
+import { useNavigation,useRoute } from '@react-navigation/native';
 
 const API_Screen_01 = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
   return (
     <View  style={styles.container}>
         <StatusBar style="auto" />
@@ -16,7 +19,12 @@ const API_Screen_01 = () => {
             <TextInput style={styles.txtInput} placeholder="Enter your email..."/>
         </View>
         <View style={styles.btnview}>
-            <TouchableOpacity style={styles.btnopacity}>
+            <TouchableOpacity style={styles.btnopacity}
+                              onPress= {() => {
+                                navigation.navigate('Screen02');                             
+                              }}
+            
+            >
                 <Text style={styles.btnText}>GET STARTED</Text>
             </TouchableOpacity>
 

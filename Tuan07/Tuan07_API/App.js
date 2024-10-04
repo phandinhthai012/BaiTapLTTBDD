@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import API_Screen_01 from './Screen/API_Screen_01';
+import API_Scree2_02 from './Screen/API_Screen_02';
+
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -15,6 +17,7 @@ export default function App() {
       }}
     >
         <Stack.Screen name="firtScreen" component={API_Screen_01} />
+        <Stack.Screen name="Screen02" component={API_Scree2_02} />
       </Stack.Navigator>
     </NavigationContainer>
   );
