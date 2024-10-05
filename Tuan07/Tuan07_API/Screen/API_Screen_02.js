@@ -7,22 +7,7 @@ import { useState,useEffect } from 'react';
 const API_Screen_02 = () => {
   const navigation = useNavigation();
   const route = useRoute();
-
-  const TodoItem =({obj}) =>{
-    return(
-      <View style={styles.item}>
-          <View style={styles.item2}>
-            <Image source={require("../assets/img/done.png")} />
-            <Text style={styles.txttask}>{obj.job}</Text>
-          </View>
-          <TouchableOpacity>
-               <Image source={require("../assets/img/edit.png")} />
-           </TouchableOpacity>
-      </View>
-    )
-  }
-
-  const Base_Url = "https://64583ae61a4c152cf9937c0c.mockapi.io/api/v1/todos";
+  
   const [toDo, setToDo] = useState({
     id: '',
     job: '',
@@ -30,6 +15,31 @@ const API_Screen_02 = () => {
     name: '',
     createdAt: '',
   })
+  const handlePress = (item) => {
+    navigation.navigate('Screen03', {toDoEdit: item });
+  };
+
+  const TodoItem =({obj}) =>{
+    
+    return(
+      <View style={styles.item}>
+          <View style={styles.item2}>
+            <Image source={require("../assets/img/done.png")} />
+            <Text style={styles.txttask}>{obj.job}</Text>
+            {/* <TextInput style={styles.txttask} 
+                        value={toDo.job || obj.job}
+                        
+            /> */}
+          </View>
+          <TouchableOpacity onPress={() => handlePress(obj)}>
+               <Image source={require("../assets/img/edit.png")}/>
+           </TouchableOpacity>
+      </View>
+    )
+  }
+
+  const Base_Url = "https://64583ae61a4c152cf9937c0c.mockapi.io/api/v1/todos";
+  
   
   const [todos, setTodos] = useState([]);
 
@@ -74,7 +84,9 @@ const API_Screen_02 = () => {
             renderItem={({item}) =><TodoItem obj={item}/>}
         />
         <View style={styles.viewadd}>
-          <TouchableOpacity style={styles.btnAdd}>
+          <TouchableOpacity style={styles.btnAdd}
+                            onPress={() => navigation.navigate('Screen03')}
+          >
               <Image source={require("../assets/img/plus.png")} />
           </TouchableOpacity>
         </View>
