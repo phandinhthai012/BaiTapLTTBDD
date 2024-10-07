@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react';
 const API_Screen_02 = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  
+  const refresh = route.params?.refresh;
   const [toDo, setToDo] = useState({
     id: '',
     job: '',
@@ -52,6 +52,12 @@ const API_Screen_02 = () => {
       console.log(error);
     });
   }
+
+  useEffect(() => {
+    if (route.params?.refresh) {
+      handleGetToDos();
+    }
+  }, [route.params?.refresh]);
 
   useEffect(() => {
     handleGetToDos();

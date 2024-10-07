@@ -19,23 +19,48 @@ const API_Screen_03 = () => {
           setToDo({ id, job, title, name, createdAt });
         }
       }, [route.params]);
-    const handleTodo = () => {
-       fetch(Base_Url, {
-         method: 'POST',
-         headers: {
-           'Content-Type': 'application/json',
-         },
-         body: JSON.stringify(toDo),
-       }).then((response) => {
-         if (response.status === 201) {
-           alert('Added successfully');
-           navigation.navigate('AScreen02');
-         } else {
-           alert('Failed to add todo');
-         }
-       });
+    const handleTodo = (toDoJob) => {
+      if(toDoJob.id){
+        //chỉnh sửa 
+        fetch(Base_Url + '/' + toDoJob.id, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(toDoJob),
+        }).then((response) => {
+          if (response.status === 200) {
+            alert('Updated successfully');
+            navigation.navigate('Screen02',{refresh:true});
+          } else {
+            alert('Failed to update todo');
+          }
+        });
+      }else {
+        //thêm mới
+        toDoJob.id = Math.floor(Math.random() * 10000);
+        alert('toDoJob.id'+toDoJob.id);
+        fetch(Base_Url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(toDo),
+        }).then((response) => {
+          if (response.status === 201) {
+            alert('Added successfully');
+            navigation.navigate('Screen02',{refresh:true});
+           
+          } else {
+            alert('Failed to add todo');
+          }
+        });
+      }
     }
-
+    const handleDelete = (toDoId) => {
+      alert('Deleted successfully'+toDoId.id);
+    }
+    
   return (
     <View style={styles.container}>
         <View style={styles.header}>
@@ -68,7 +93,8 @@ const API_Screen_03 = () => {
             </View>
             <View style={{marginTop:50}}>
                 <TouchableOpacity style={styles.btnAdd}
-                                    onPress={() => handleTodo()}
+                                    // onPress={() => handleTodo()}
+                                    onPress={() => {handleTodo(toDo)}}
                 
                 >
                     <Text style={styles.txtAdd}>Finish</Text>
