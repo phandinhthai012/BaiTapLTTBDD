@@ -6,6 +6,7 @@ const API_Screen_03 = () => {
     const Base_Url = "https://64583ae61a4c152cf9937c0c.mockapi.io/api/v1/todos";
     const navigation = useNavigation();
     const route = useRoute();
+    const name = route.params?.name;
     const [toDo,setToDo] = useState({
         id: '',
         job: '',
@@ -67,7 +68,7 @@ const API_Screen_03 = () => {
             <View style={styles.avatar}>
               <Image source={require('../assets/img/avatar.png')} />
               <View style={styles.avatar2}>
-                <Text style={styles.txtName}>Hi Twinkle</Text>
+                <Text style={styles.txtName}>{'Hi '+name||'Hi Twinkle'}</Text>
                 <Text style={styles.txtMessage}>Have agrate day a head</Text>
               </View>
             </View>

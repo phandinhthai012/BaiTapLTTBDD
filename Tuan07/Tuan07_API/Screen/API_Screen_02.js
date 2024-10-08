@@ -8,6 +8,7 @@ const API_Screen_02 = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const refresh = route.params?.refresh;
+  const name = route.params?.name;
   const [toDo, setToDo] = useState({
     id: '',
     job: '',
@@ -74,7 +75,7 @@ const API_Screen_02 = () => {
             <View style={styles.avatar}>
               <Image source={require('../assets/img/avatar.png')} />
               <View style={styles.avatar2}>
-                <Text style={styles.txtName}>Hi Twinkle</Text>
+                <Text style={styles.txtName}>{'Hi '+name||'Hi Twinkle'}</Text>
                 <Text style={styles.txtMessage}>Have agrate day a head</Text>
               </View>
             </View>
@@ -91,7 +92,7 @@ const API_Screen_02 = () => {
         />
         <View style={styles.viewadd}>
           <TouchableOpacity style={styles.btnAdd}
-                            onPress={() => navigation.navigate('Screen03')}
+                            onPress={() => navigation.navigate('Screen03',{name:name})}
           >
               <Image source={require("../assets/img/plus.png")} />
           </TouchableOpacity>

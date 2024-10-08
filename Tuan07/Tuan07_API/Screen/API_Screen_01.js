@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View , Image, StatusBar,TextInput, TouchableOpacity} from 'react-native'
 import React from 'react';
 import { useNavigation,useRoute } from '@react-navigation/native';
+import { useState } from 'react';
 
 const API_Screen_01 = () => {
   const navigation = useNavigation();
   const route = useRoute();
+  const [name, setName] = useState('');
   return (
     <View  style={styles.container}>
         <StatusBar style="auto" />
@@ -16,12 +18,15 @@ const API_Screen_01 = () => {
         </View>
         <View style={styles.inputView}>
             <Image style={styles.imgEmails} source={require('../assets/img/email.png')}/>
-            <TextInput style={styles.txtInput} placeholder="Enter your email..."/>
+            <TextInput style={styles.txtInput} placeholder="Enter your email..."
+                        onChangeText={(text) => setName(text)}
+            
+            />
         </View>
         <View style={styles.btnview}>
             <TouchableOpacity style={styles.btnopacity}
                               onPress= {() => {
-                                navigation.navigate('Screen02');                             
+                                navigation.navigate('Screen02',{name});                             
                               }}
             
             >
