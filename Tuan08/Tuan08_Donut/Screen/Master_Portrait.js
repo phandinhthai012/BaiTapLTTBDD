@@ -10,9 +10,8 @@ import {
     Image,
     Pressable
 } from 'react-native';
-// import ItemDonut from '../component/itemDonut';
-
 import { useNavigation } from '@react-navigation/native';
+import DonutItem from '../component/DonutItem';
 const Master_Portrait = () => {
     const BARE_URL = "https://64583ae61a4c152cf9937c0c.mockapi.io/api/v1/Donuts"
     const navigation = useNavigation();
@@ -34,37 +33,7 @@ const Master_Portrait = () => {
     useEffect(() => {
         getData();
     }, [])
-
-
-    const imageMap = {
-        'tasty_donut1.png': require('../assets/images/tasty_donut1.png'),
-        'green_donut1.png': require('../assets/images/green_donut1.png'),
-        'donut_yellow1.png': require('../assets/images/donut_yellow1.png'),
-        'donut_red2.png': require('../assets/images/donut_red2.png'),
-
-    };
-    const ItemDonut = ({ item }) => {
-        return (
-            <Pressable style={styles.viewcontaineritem}
-                onPress={() => {
-                    alert(item.name)
-                    navigation.navigate('secondScreen')
-                }}
-            >
-                <View style ={styles.viewitem}>
-                    <Image source={imageMap[item.img]} style={{ width: 100, height: 100, borderRadius:10 }} />
-                    <View style ={styles.viewitemright}>
-                        <Text style ={styles.txtname}>{item.name}</Text>
-                        <Text style ={styles.txtdes}>{item.description}</Text>
-                        <View style ={styles.priceitem}>
-                            <Text style ={styles.txtprice}>${item.price}</Text>
-                            <Image source={require('../assets/images/plus_button.png')} />
-                        </View>
-                    </View>
-                </View>
-            </Pressable>
-        )
-    }
+    
     return (
         <View style={styles.container}>
             <Text style={styles.txtW}>Welcome, Jala</Text>
@@ -113,7 +82,7 @@ const Master_Portrait = () => {
                 <FlatList
                     data={donuts}
                     keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => <ItemDonut item={item} />
+                    renderItem={({ item }) => <DonutItem item={item} />
                     }
                 />
             </View>
@@ -180,43 +149,4 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
-    viewcontaineritem:{
-        height: 200,
-        width: '99%',
-        backgroundColor: '#f3dedd',
-        marginBottom: 10,
-        padding:10,
-        justifyContent: 'center',
-        borderRadius: 10,
-    },
-    viewitem:{
-
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 5,
-    },
-    viewitemright:{
-        width: 205,  
-        marginLeft: 20,
-    },
-    txtname:{
-        fontSize:20,
-        fontWeight: 'bold',
-    },
-    txtdes:{
-        fontSize:20,
-        fontWeight: 'bold',
-        color:'#6f6363',
-        marginBottom: 5,
-    },
-    priceitem:{
-        flexDirection: 'row',
-        justifyContent:'space-between',
-       alignItems: 'center',
-    },
-    txtprice:{
-        fontSize:20,
-        fontWeight: 'bold',
-    }
 })
