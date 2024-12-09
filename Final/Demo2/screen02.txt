@@ -1,0 +1,57 @@
+import { Text, View, StyleSheet, Image,FlatList,TouchableOpacity ,Button} from 'react-native';
+import react ,{useState,useEffect}from 'react'
+import {NavigationContainer,useNavigation} from '@react-navigation/native'
+import {useSelector,useDispatch} from 'react-redux'
+import { fetchProducts, addNew,addItemCart,removeItem } from '../store';
+
+export default function Screen02() {
+  const navigation= useNavigation()
+  const dispatch = useDispatch()
+  const {products,cart} =useSelector((state)=>(state.products))
+  return (
+    <View style={styles.container}>
+     <Text>Danh Sach Cart</Text>
+      <FlatList
+      style={{height:400,width:'100%'}}
+        data={cart}
+        renderItem={({item})=>{
+          return( 
+            <TouchableOpacity 
+              onPress={()=>{
+                dispatch(removeItem(item.id))
+              }}
+              style={{borderWidth:1,padding:8,marginBottom:4}}>
+              <Text>{item.name}</Text>
+              <Text>{item.price} vnd</Text>
+            </TouchableOpacity>
+          )
+        }}
+      />
+      <Button
+        title='check out'
+        onPress={()=>{
+          dispatch(addNew(cart))
+        }}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+  },
+  paragraph: {
+    margin: 24,
+    marginTop: 0,
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  logo: {
+    height: 128,
+    width: 128,
+  }
+});
